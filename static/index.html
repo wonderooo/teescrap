@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teescrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="req.js"></script>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <div class="container-fluid text-center">
+        <div class="row mt-4 mx-1" style="height: 900px;">
+            <div class="col rounded-4 position-relative" style="background-color: rgb(230, 244, 244);">
+                <p class="fs-1 m-2">
+                    New Cycle
+                </p>
+                
+                <form onsubmit="return false;">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Breeds</label>
+                    </div>
+
+                    <div class="form-floating mt-4">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Styles</label>
+                    </div>
+
+                    <div class="form-floating mt-4">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Tags</label>
+                    </div>
+
+                    <input class="btn btn-success position-absolute bottom-0 mb-4" type="submit" value="Start" onclick="createCycle()">
+                </form>
+            </div>
+            <div class="col rounded-4" style="background-color: rgb(242, 233, 222);">
+                <p class="fs-1 m-2">
+                    Started cycles
+                </p>
+
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex justify-content-between align-items-start pb-4">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">#5435 Cycle</div>
+                            <div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Jobs
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #3213 Job
+                                        <span class="badge bg-success rounded-pill">Success</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #5435 Job
+                                        <span class="badge bg-primary rounded-pill">Pending</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #6543 Job
+                                        <span class="badge bg-danger rounded-pill">Failed</span>
+                                    </button>
+                                </li>
+                                </ul>
+                            </div>
+
+                      </div>
+                      <span class="badge bg-success rounded-pill">Success</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start pb-4">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">#4833 Cycle</div>
+                            <div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Jobs
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #3213 Job
+                                        <span class="badge bg-success rounded-pill">Success</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #5435 Job
+                                        <span class="badge bg-primary rounded-pill">Pending</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #6543 Job
+                                        <span class="badge bg-danger rounded-pill">Failed</span>
+                                    </button>
+                                </li>
+                                </ul>
+                            </div>
+                      </div>
+                      <span class="badge bg-primary rounded-pill">Pending</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start pb-4">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">#8654 Cycle</div>
+                            <div class="dropdown">
+                                <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Jobs
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #3213 Job
+                                        <span class="badge bg-success rounded-pill">Success</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #5435 Job
+                                        <span class="badge bg-primary rounded-pill">Pending</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        #6543 Job
+                                        <span class="badge bg-danger rounded-pill">Failed</span>
+                                    </button>
+                                </li>
+                                </ul>
+                            </div> 
+                        </div>
+                      <span class="badge bg-danger rounded-pill">Failed</span>
+                    </li>
+                </ol>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Job id</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Maecenas id ante non erat facilisis malesuada. Morbi suscipit scelerisque bibendum. Suspendisse potenti. Duis blandit blandit leo, non aliquet odio commodo sit amet. Integer eleifend odio velit, in accumsan massa aliquet at. Suspendisse potenti. Aenean et turpis vel enim consequat sodales id at nibh. Duis lacinia consectetur tellus, et feugiat augue luctus at.
+            </div>
+        </div>
+        </div>
+    </div>
+
+  </body>
+</html>
