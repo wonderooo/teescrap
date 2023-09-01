@@ -29,3 +29,10 @@ func (d *CyclesDb) append(c Cycle) {
 	size := len(d.m)
 	d.m[size] = c
 }
+
+func (d *CyclesDb) all() map[int]Cycle {
+	d.mu.RLock()
+	defer d.mu.RUnlock()
+
+	return d.m
+}

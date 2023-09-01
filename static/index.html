@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="req.js"></script>
   </head>
-  <body>
+  <body onload="refresh()">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
     <div class="container-fluid text-center">
@@ -19,17 +19,17 @@
                 
                 <form onsubmit="return false;">
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <textarea id="breeds-inp" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Breeds</label>
                     </div>
 
                     <div class="form-floating mt-4">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <textarea id="styles-inp" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Styles</label>
                     </div>
 
                     <div class="form-floating mt-4">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <textarea id="tags-inp" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Tags</label>
                     </div>
 
@@ -41,7 +41,7 @@
                     Started cycles
                 </p>
 
-                <ol class="list-group list-group-numbered">
+                <ol id="cycles-list" class="list-group list-group-numbered">
                     <li class="list-group-item d-flex justify-content-between align-items-start pb-4">
                       <div class="ms-2 me-auto">
                         <div class="fw-bold">#5435 Cycle</div>

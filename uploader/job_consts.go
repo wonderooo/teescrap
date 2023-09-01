@@ -12,6 +12,7 @@ const (
 	XPATH_MAIN_TAG_INP_TAG    = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[1]/div[1]/div[2]/div[1]/input`
 	XPATH_SUP_TAG_INP_TAG     = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[1]/div[1]/div[2]/div[2]/div[2]/ul[1]/li/input`
 	XPATH_MATURE_NO_INP_TAG   = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[1]/div[1]/div[3]/div/div[2]/div[2]/input`
+	XPATH_MATURE_NO_DIV_TAG   = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[1]/div[1]/div[3]/div/div[2]/div[2]`
 	XPATH_MATURE_YES_INP_TAG  = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[1]/div[1]/div[3]/div/div[2]/div[1]/input`
 	XPATH_TERMS_INP_TAG       = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[4]/label/input`
 	XPATH_SUBMIT_BUTT_TAG     = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[4]/div[2]/button[1]`
@@ -38,6 +39,7 @@ Additional products toggles
 */
 const (
 	ATTR_FALSE                 = `false`
+	ATTR_TRUE                  = `true`
 	XPATH_STICKERS_OFF_INP_TAG = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[2]/div[11]/div[2]/div[2]/div[3]/div/input`
 	XPATH_CASES_OFF_INP_TAG    = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[2]/div[11]/div[2]/div[3]/div[3]/div/input`
 	XPATH_MUGS_OFF_INP_TAG     = `/html/body/div[4]/div/div[2]/div[3]/div/form/div/div[3]/div[2]/div[11]/div[2]/div[4]/div[3]/div/input`

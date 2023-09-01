@@ -10,11 +10,11 @@ import (
 )
 
 type Job struct {
-	imagePath   string
-	title       string
-	description string
-	tags        []string
-	colors      ColorChoices
+	ImagePath   string       `json:"imagePath"`
+	Title       string       `json:"title"`
+	Description string       `json:"description"`
+	Tags        []string     `json:"tags"`
+	Colors      ColorChoices `json:"colors"`
 }
 
 type JobAction chromedp.Action
@@ -23,19 +23,19 @@ func NewJob(imagePath string, title string, description string, colors ColorChoi
 	colors.setDefaults()
 
 	return Job{
-		imagePath:   imagePath,
-		title:       title,
-		description: description,
-		tags:        tags,
-		colors:      colors,
+		ImagePath:   imagePath,
+		Title:       title,
+		Description: description,
+		Tags:        tags,
+		Colors:      colors,
 	}
 }
 
-func uploadDesigns(jobs []Job) JobAction {
+func uploadDesigns(jobs *[]Job) JobAction {
 	return chromedp.ActionFunc(func(ctx context.Context) error {
 		var err error
 
-		for idx, job := range jobs {
+		for idx, job := range *jobs {
 			err = toUploadDesign().Do(ctx)
 			if err != nil {
 				log.Fatalf("Could not go to upload new design page: %s", err)
@@ -52,12 +52,12 @@ func uploadDesigns(jobs []Job) JobAction {
 				}
 			}
 
-			err = uploadImage(job.imagePath).Do(ctx)
+			err = uploadImage(job.ImagePath).Do(ctx)
 			if err != nil {
 				log.Fatalf("Could not upload image: %s", err)
 			}
 
-			err = fillInfo(job.title, job.description, job.tags...).Do(ctx)
+			err = fillInfo(job.Title, job.Description, job.Tags...).Do(ctx)
 			if err != nil {
 				log.Fatalf("Could not fill design info: %s", err)
 			}
@@ -67,7 +67,7 @@ func uploadDesigns(jobs []Job) JobAction {
 				log.Fatalf("Could not accept design agreements: %s", err)
 			}
 
-			err = fillColors(job.colors).Do(ctx)
+			err = fillColors(job.Colors).Do(ctx)
 			if err != nil {
 				log.Fatalf("Could not fill design colors: %s", err)
 			}
@@ -130,7 +130,7 @@ func acceptAgreements(matureContent bool) chromedp.Action {
 	if matureContent {
 		xpathMature = XPATH_MATURE_YES_INP_TAG
 	} else {
-		xpathMature = XPATH_MATURE_NO_INP_TAG
+		xpathMature = XPATH_MATURE_NO_DIV_TAG
 	}
 
 	return &chromedp.Tasks{
@@ -142,16 +142,16 @@ func acceptAgreements(matureContent bool) chromedp.Action {
 func fillColors(colors ColorChoices) chromedp.Action {
 	log.Printf("Got colors: %s", colors)
 	return &chromedp.Tasks{
-		chromedp.SetAttributeValue(XPATH_TSHIRT_COLOR, ATTR_VALUE, colorMapping[colors.tshirt], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_HOODIE_COLOR, ATTR_VALUE, colorMapping[colors.hoodie], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_TANK_COLOR, ATTR_VALUE, colorMapping[colors.tank], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_CREWNECK_COLOR, ATTR_VALUE, colorMapping[colors.crewneck], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_LONG_COLOR, ATTR_VALUE, colorMapping[colors.longsleeve], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_BASEBALL_COLOR, ATTR_VALUE, colorMapping[colors.baseball], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_KIDS_COLOR, ATTR_VALUE, colorMapping[colors.kids], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_KIDS_HOODIE_COLOR, ATTR_VALUE, colorMapping[colors.kidsHoodie], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_KIDS_LONG_COLOR, ATTR_VALUE, colorMapping[colors.kidsLongsleeve], chromedp.NodeReady),
-		chromedp.SetAttributeValue(XPATH_BABY_BODY_COLOR, ATTR_VALUE, colorMapping[colors.babyBody], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_TSHIRT_COLOR, ATTR_VALUE, colorMapping[colors.Tshirt], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_HOODIE_COLOR, ATTR_VALUE, colorMapping[colors.Hoodie], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_TANK_COLOR, ATTR_VALUE, colorMapping[colors.Tank], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_CREWNECK_COLOR, ATTR_VALUE, colorMapping[colors.Crewneck], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_LONG_COLOR, ATTR_VALUE, colorMapping[colors.Longsleeve], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_BASEBALL_COLOR, ATTR_VALUE, colorMapping[colors.Baseball], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_KIDS_COLOR, ATTR_VALUE, colorMapping[colors.Kids], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_KIDS_HOODIE_COLOR, ATTR_VALUE, colorMapping[colors.KidsHoodie], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_KIDS_LONG_COLOR, ATTR_VALUE, colorMapping[colors.KidsLongsleeve], chromedp.NodeReady),
+		chromedp.SetAttributeValue(XPATH_BABY_BODY_COLOR, ATTR_VALUE, colorMapping[colors.BabyBody], chromedp.NodeReady),
 	}
 }
 

@@ -11,16 +11,16 @@ var colorMapping = map[string]string{
 }
 
 type ColorChoices struct {
-	tshirt         string `default:"white"`
-	hoodie         string `default:"black"`
-	tank           string `default:"white"`
-	crewneck       string `default:"white"`
-	longsleeve     string `default:"white"`
-	baseball       string `default:"black_white"`
-	kids           string `default:"white"`
-	kidsHoodie     string `default:"black"`
-	kidsLongsleeve string `default:"black"`
-	babyBody       string `default:"black"`
+	Tshirt         string `default:"white" json:"tshirt"`
+	Hoodie         string `default:"black" json:"hoodie"`
+	Tank           string `default:"white" json:"tank"`
+	Crewneck       string `default:"white" json:"crewneck"`
+	Longsleeve     string `default:"white" json:"longsleeve"`
+	Baseball       string `default:"black_white" json:"baseball"`
+	Kids           string `default:"white" json:"kids"`
+	KidsHoodie     string `default:"black" json:"kidsHoodie"`
+	KidsLongsleeve string `default:"black" json:"kidsLongsleeve"`
+	BabyBody       string `default:"black" json:"babyBody"`
 }
 
 func (c *ColorChoices) setDefaults() {
@@ -29,37 +29,57 @@ func (c *ColorChoices) setDefaults() {
 
 		if value, ok := field.Tag.Lookup("default"); ok {
 			switch field.Name {
-			case "tshirt":
-				if c.tshirt == "" { c.tshirt = value }
+			case "Tshirt":
+				if c.Tshirt == "" {
+					c.Tshirt = value
+				}
 				break
-			case "hoodie":
-				if c.hoodie == "" { c.hoodie = value }
+			case "Hoodie":
+				if c.Hoodie == "" {
+					c.Hoodie = value
+				}
 				break
-			case "tank":
-				if c.tank == "" { c.tank = value }
+			case "Tank":
+				if c.Tank == "" {
+					c.Tank = value
+				}
 				break
-			case "crewneck":
-				if c.crewneck == "" { c.crewneck = value }
+			case "Crewneck":
+				if c.Crewneck == "" {
+					c.Crewneck = value
+				}
 				break
-			case "longsleeve":
-				if c.longsleeve == "" { c.longsleeve = value }
+			case "Longsleeve":
+				if c.Longsleeve == "" {
+					c.Longsleeve = value
+				}
 				break
-			case "baseball":
-				if c.baseball == "" { c.baseball = value }
+			case "Baseball":
+				if c.Baseball == "" {
+					c.Baseball = value
+				}
 				break
-			case "kids":
-				if c.kids == "" { c.kids = value }
+			case "Kids":
+				if c.Kids == "" {
+					c.Kids = value
+				}
 				break
-			case "kidsHoodie":
-				if c.kidsHoodie == "" { c.kidsHoodie = value }
+			case "KidsHoodie":
+				if c.KidsHoodie == "" {
+					c.KidsHoodie = value
+				}
 				break
-			case "kidsLongsleeve":
-				if c.kidsLongsleeve == "" { c.kidsLongsleeve = value }
+			case "KidsLongsleeve":
+				if c.KidsLongsleeve == "" {
+					c.KidsLongsleeve = value
+				}
 				break
-			case "babyBody":
-				if c.babyBody == "" { c.babyBody = value }
+			case "BabyBody":
+				if c.BabyBody == "" {
+					c.BabyBody = value
+				}
 				break
 			}
 		}
-	 }
+	}
 }

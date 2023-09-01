@@ -23,12 +23,12 @@ var (
 
 type Uploader struct {
 	debug    bool
-	jobs     []Job
+	jobs     *[]Job
 	settings context.Context
 }
 
-func New(debug bool, jobs []Job) *Uploader {
-	ctx := getContext(debug, len(jobs))
+func New(debug bool, jobs *[]Job) *Uploader {
+	ctx := getContext(debug, len(*jobs))
 
 	return &Uploader{
 		debug:    debug,
@@ -85,7 +85,6 @@ func getContext(debug bool, size int) context.Context {
 		)
 	} else {
 		ctx, cancel = chromedp.NewContext(ctx, 
-			chromedp.WithDebugf(log.Printf),
 		)
 	}
 	cancels = append(cancels, cancel)

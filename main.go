@@ -14,6 +14,7 @@ func main() {
 	db := webapp.InitDb()
 	app.AddHandle("/", webapp.HandleStaticContent())
 	app.AddHandle("/cycles", webapp.HandleCreateCycle(db))
+	app.AddHandle("/refresh", webapp.HandleList(db))
 
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, os.Interrupt)
@@ -31,11 +32,11 @@ func main() {
 	}
 }
 
-func exampleJobs() []uploader.Job {
+func exampleJobs() *[]uploader.Job {
 	/*
 
 	 */
-	return []uploader.Job{
+	return &[]uploader.Job{
 		uploader.NewJob("shared/rng.jpeg", "dupa1", "dsc", uploader.ColorChoices{}, "shirtooo1", "shirtooo2", "shirtooo3"),
 		uploader.NewJob("shared/rng.jpeg", "dupa2", "dsc", uploader.ColorChoices{}, "shirtooo1", "shirtooo2", "shirtooo3"),
 		uploader.NewJob("shared/rng.jpeg", "dupa3", "dsc", uploader.ColorChoices{}, "shirtooo1", "shirtooo2", "shirtooo3"),
